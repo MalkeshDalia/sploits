@@ -6,7 +6,7 @@ Works only on High Sierra, and requires root privilege. It can be chained with m
 
 https://conference.hitb.org/hitbsecconf2019ams/materials/D2T2%20-%20ModJack%20-%20Hijacking%20the%20MacOS%20Kernel%20-%20Zhi%20Zhou.pdf
 
-* `symbols` has `com.apple.system-task-ports` entitlement thus it can get the task port of `kextd` via `task_for_pid`
+* `symbols` has `com.apple.system-task-ports` entitlement thus it can get the task port of `kextd` via `task_for_pid` (requires root because kextd has euid 0)
 * Trigger dylib hijack to load evil payload in process `symbols` and steal the entitlement and control `kextd`
 * `kextd` / `kextutil` / `kextload` are `com.apple.rootless.kext-secure-management` entitled, with whom the they can send MKext request to XNU to load KEXT
 * All the validation are checked in userland: code signature, root filesystem permission, User-Approved Kernel Extension Loading, KEXT staging. Just ask XNU to load our KEXT without code signature
