@@ -20,6 +20,10 @@ git submodule init
 git submodule update
 ```
 
+Install binutils
+
+`brew install binutils`
+
 Build [Unrootless.kext](https://github.com/LinusHenze/Unrootless-Kext)
 
 ```sh
